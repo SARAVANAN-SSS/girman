@@ -36,7 +36,7 @@ Since it is first time for me to use shadcn, I struggled a little but endded up 
 ## Here's How to run this App in your local system: 
 
 1. Clone the repository using the below bash command
-git clone https://github.com/SARAVANAN-SSS/girman/frontend
+git clone https://github.com/SARAVANAN-SSS/girman/tree/main/frontend
 
 2. Navigate to the project directory using the below bash command:
 cd frontend
