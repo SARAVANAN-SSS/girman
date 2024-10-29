@@ -13,11 +13,11 @@ Search Based web application
 
 ## Technologies Used : 
 
-Frontend: React, Tailwind CSS, shadcn
-User Data: from user_list.json file as provided
-Routing: React Router
-React Hooks: useState, useEffect
-State Management: context API
+1. Frontend: React, Tailwind CSS, shadcn
+2. User Data: from user_list.json file as provided
+3. Routing: React Router
+4. React Hooks: useState, useEffect
+5. State Management: context API
 
 ## Challenges Faced : 
 
@@ -26,14 +26,20 @@ State Management: context API
 
 Since it is first time for me to use shadcn, I struggled a little but endded up making it.
 
+## Edge Cases Handled :
+
+1. Empty Search is handled
+2. Other than Characters and numbers search is handled
+3. No results Found too handled
+
 
 ## Here's How to run this App in your local system: 
 
 1. Clone the repository using the below bash command
-git clone 
+git clone https://github.com/SARAVANAN-SSS/girman/frontend
 
 2. Navigate to the project directory using the below bash command:
-cd 
+cd frontend
 
 3. Install the dependencies using the below bash command:
 npm install
@@ -49,3 +55,5 @@ Click the same, it will take you to the Application in the browser.
 
 
 ## Here's the deployed Netlify Link: 
+
+https://girmansss.netlify.app/
