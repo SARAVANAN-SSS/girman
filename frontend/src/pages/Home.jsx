@@ -1,58 +1,61 @@
-import { useEffect, useState } from 'react';
-import ProductItem from '../components/ProductItem';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import symbol from '../assets/symbol.png'
 
 const Home = () => {
-  const [products, setProducts] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [loading, setLoading] = useState(false);
-  const itemsPerPage = 10;
+  const [searchValue, setSearchValue] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const navigate = useNavigate();
 
-  const fetchProducts = async (page) => {
-    setLoading(true);
-    const skip = (page - 1) * itemsPerPage;
-    try {
-      const response = await fetch(`https://dummyjson.com/products?limit=${itemsPerPage}&skip=${skip}`);
-      const data = await response.json();
-      setProducts(data.products);
-      setLoading(false);
-    } catch (error) {
-      console.error("Error while fetching the products, please check the API response", error);
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchProducts(currentPage);
-  }, [currentPage]);
-
-
-  // New for girman
-
-  const [searchValue, setSearchValue] = useState('')
-  const navigate = useNavigate()
-
-  const handleKeyDown = (event) =>{
+  const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
       event.preventDefault();
+
+      if (!searchValue.trim()) {
+        setErrorMessage('Hey, Please search something...');
+        return;
+      }
+
+      const validInputPattern = /^[a-zA-Z0-9\s]+$/;
+      if (!validInputPattern.test(searchValue)) {
+        setErrorMessage('Please search valid characters...');
+        return;
+      }
+
+      setErrorMessage('');
       console.log("Entered", searchValue);
       navigate(`/cards?search=${encodeURIComponent(searchValue)}`);
     }
-  }
+  };
 
+  const handleChange = (e) => {
+    const newValue = e.target.value;
+    setSearchValue(newValue);
+
+    const validInputPattern = /^[a-zA-Z0-9\s]+$/;
+    if (newValue.trim() === '' || validInputPattern.test(newValue)) {
+      setErrorMessage('');
+    }
+  };
 
   return (
     <div className="w-full flex flex-col items-center border-t h-screen gradient-bg">
+      <div>
+      <div className='flex justify-center items-center gap-3 mt-[7em] mb-[2em] h-[53px]'>
+      <img className='h-full' src={symbol} alt='logo-symbol' />
+      <h2 className='font-bold text-[73px]'>Girman</h2>
+      </div>
+        <input 
+          type="text"
+          value={searchValue}
+          onChange={handleChange}
+          onKeyDown={handleKeyDown}
+          placeholder="Search"
+          className="border-none outline-none rounded-lg px-3 py-1 h-[31px] w-[455px] shadow-lg"
+        />
+      </div>
 
-    <input 
-      type='text'
-      value={searchValue}
-      onChange={(e)=>setSearchValue(e.target.value)}
-      onKeyDown={handleKeyDown}
-      placeholder='Search'
-      className='mt-[11em] border-none rounded-lg px-3 py-1 h-[31px] w-[598px]'
-    />
-    
+      {errorMessage && <p className="text-red-700 pt-3">{errorMessage}</p>}
     </div>
   );
 };

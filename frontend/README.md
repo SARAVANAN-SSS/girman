@@ -1,41 +1,39 @@
 # Task: 
 
-2 Page E-Commerce APP
+Search Based web application
 
-1. Product Listing Page
-2. Individual Product Page
-
-## Description : 
-
-The task is to build an e-commerce application that allows users to view a list of products fetched from an API. Users can click on a product to view its details, including images, description, price, brand, and category.
+1. Home Screen
+2. Search Results Ppage
 
 ## Features :
 
-1. Product listing with images, titles, and prices.
-2. Detailed product view with additional information.
-3. Pagination to navigate through multiple pages of products (10 products per page).
-4. Shimmer UI for handling loading states.
+1. Search Names, numbers, once you enter it will take you to search results page
+2. Here again you can search from those searched results by using search bar in the navbar
+3. By clicking Fetch Details Button you can see the more information of specific user
 
 ## Technologies Used : 
 
-Frontend: React, Tailwind CSS
-API: DummyJSON (for product data)
+Frontend: React, Tailwind CSS, shadcn
+User Data: from user_list.json file as provided
 Routing: React Router
 React Hooks: useState, useEffect
-Getting Started
+State Management: context API
 
-## API's Used: 
+## Challenges Faced : 
 
-1. https://dummyjson.com/products - To get all the prdocuts
-2. https://dummyjson.com/products/prodcutId - To get a singleProduct details
+1. Installing shadcn.
+2. Building Card and Dialog component using shadcn.
+
+Since it is first time for me to use shadcn, I struggled a little but endded up making it.
+
 
 ## Here's How to run this App in your local system: 
 
 1. Clone the repository using the below bash command
-git clone https://github.com/SARAVANAN-SSS/visionbird.git
+git clone 
 
 2. Navigate to the project directory using the below bash command:
-cd visionbird
+cd 
 
 3. Install the dependencies using the below bash command:
 npm install
@@ -51,5 +49,3 @@ Click the same, it will take you to the Application in the browser.
 
 
 ## Here's the deployed Netlify Link: 
-
-https://visionbirdecom.netlify.app/
